@@ -22,30 +22,32 @@
             min-height: 100vh;
             color: #4a4a6a;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         header {
-            background: linear-gradient(135deg, #d4a5d9 0%, #c9b5e8 100%);
+            background: linear-gradient(135deg, rgba(212,165,217,0.98) 0%, rgba(201,181,232,0.98) 100%);
             color: #ffffff;
             padding: 18px 40px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(212, 165, 217, 0.25);
+            box-shadow: 0 8px 32px rgba(212, 165, 217, 0.18);
             position: fixed;
             left: 0;
             top: 0;
             width: 100%;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
 
         header h1 {
             font-size: 3em;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
             animation: slideDown 0.6s ease-out;
             letter-spacing: 2px;
             font-weight: 700;
+            will-change: transform;
+            -webkit-font-smoothing: antialiased;
         }
 
         @keyframes slideDown {
@@ -98,11 +100,12 @@
         }
 
         nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px) scale(1.05);
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-2px);
             color: #3d2650;
             border-color: #d4a5d9;
-            box-shadow: 0 8px 16px rgba(212, 165, 217, 0.2);
+            box-shadow: 0 6px 12px rgba(212, 165, 217, 0.14);
+            -webkit-font-smoothing: antialiased;
         }
 
         nav ul li a:hover::before {
@@ -144,8 +147,6 @@
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             animation: fadeInUp 0.6s ease-out;
             border: 1px solid rgba(212, 165, 217, 0.12);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
         }
 
         @keyframes fadeInUp {
@@ -160,9 +161,10 @@
         }
 
         section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(212, 165, 217, 0.35);
-            border-color: rgba(212, 165, 217, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(212, 165, 217, 0.18);
+            border-color: rgba(212, 165, 217, 0.28);
+            will-change: transform;
         }
 
         .theme, .service-card {
@@ -196,8 +198,8 @@
         .theme:hover, .service-card:hover {
             background: linear-gradient(135deg, #e8d5f215 0%, #f8b9d415 100%);
             border-left-color: #e8b4e8;
-            transform: translateX(10px);
-            box-shadow: 0 10px 25px rgba(212, 165, 217, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(212, 165, 217, 0.14);
         }
 
         .theme h3, .service-card h3 {
@@ -225,7 +227,8 @@
 
         .service-card:hover, .outfit-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 14px 30px rgba(212,165,217,0.12);
+            box-shadow: 0 12px 24px rgba(212,165,217,0.12);
+            backface-visibility: hidden;
         }
 
         ul {
@@ -242,19 +245,18 @@
             background-image: url('assets/wedding-bg.jpg');
             background-size: cover;
             background-position: center center;
-            background-attachment: fixed;
-            filter: brightness(0.85) saturate(0.95);
-            transform: translateZ(0);
+            background-attachment: scroll;
+            filter: brightness(0.9) saturate(0.98);
             opacity: 1;
         }
 
-        /* overlay to improve readability */
+        /* subtle overlay to improve readability without softening content */
         body::after {
             content: '';
             position: fixed;
             inset: 0;
             z-index: 0;
-            background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(232,213,242,0.38) 100%);
+            background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(232,213,242,0.18) 100%);
             pointer-events: none;
         }
 
@@ -522,6 +524,7 @@
         }
         .modal-media { margin-bottom: 12px; text-align:center; }
         .modal-media img { max-width:100%; height:auto; border-radius:8px; display:block; margin:0 auto 8px; }
+        img { image-rendering: auto; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
         .modal .cta-btn {
             display:inline-block;
             margin-right:8px;
