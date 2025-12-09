@@ -399,13 +399,13 @@
 
         <section id="services">
             <h2>Our Services</h2>
-            <h3 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🍽️ Catering</h3>
+            <h3 style="color: #b88ec7; margin-top: 25px; margin-bottom: 15px;">🍽️ Catering</h3>
             <ul>
                 <li>Italian Cuisine</li>
                 <li>Mexican Cuisine</li>
                 <li>Vegetarian Options</li>
             </ul>
-            <h3 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">💄 Makeup Artists</h3>
+            <h3 style="color: #b88ec7; margin-top: 25px; margin-bottom: 15px;">💄 Makeup Artists</h3>
             <ul>
                 <li>Artist 1</li>
                 <li>Artist 2</li>
@@ -538,14 +538,19 @@
             event.target.reset();
         }
 
-        // Add smooth scroll behavior
+        // Add smooth scroll behavior with offset for sticky header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
