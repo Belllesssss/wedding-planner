@@ -14,17 +14,17 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #fef5f9 0%, #e8d5f2 100%);
             min-height: 100vh;
-            color: #333;
+            color: #4a4a6a;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4a5d9 0%, #c9b5e8 100%);
+            color: #ffffff;
             padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(212, 165, 217, 0.25);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -78,7 +78,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #ffd89b;
+            background: #f8b9d4;
             transition: width 0.3s ease;
         }
 
@@ -98,7 +98,7 @@
         }
 
         h2 {
-            color: #667eea;
+            color: #b88ec7;
             font-size: 2.2em;
             margin-bottom: 20px;
             position: relative;
@@ -112,16 +112,16 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #d4a5d9, #e8b4e8);
             border-radius: 2px;
         }
 
         section {
             margin-bottom: 40px;
             padding: 35px;
-            background: white;
+            background: linear-gradient(135deg, #fef9fc 0%, #f5f0fa 100%);
             border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 40px rgba(212, 165, 217, 0.15);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             animation: fadeInUp 0.6s ease-out;
         }
@@ -139,27 +139,27 @@
 
         section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 50px rgba(212, 165, 217, 0.25);
         }
 
         .theme, .service-card {
             padding: 20px;
             margin: 15px 0;
-            border-left: 4px solid #667eea;
-            background: #f8f9fa;
+            border-left: 4px solid #d4a5d9;
+            background: #faf5fc;
             border-radius: 8px;
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .theme:hover, .service-card:hover {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-left-color: #764ba2;
+            background: linear-gradient(135deg, #e8d5f215 0%, #f8b9d415 100%);
+            border-left-color: #e8b4e8;
             transform: translateX(10px);
         }
 
         .theme h3, .service-card h3 {
-            color: #667eea;
+            color: #b88ec7;
             margin-bottom: 10px;
             font-size: 1.3em;
         }
@@ -172,7 +172,7 @@
         li {
             padding: 10px 15px;
             margin: 8px 0;
-            background: #f8f9fa;
+            background: #faf5fc;
             border-radius: 8px;
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
@@ -184,22 +184,22 @@
             content: '✓';
             position: absolute;
             left: 10px;
-            color: #667eea;
+            color: #d4a5d9;
             font-weight: bold;
             font-size: 1.2em;
         }
 
         li:hover {
-            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
-            border-left-color: #667eea;
+            background: linear-gradient(135deg, #e8d5f210 0%, #f8b9d410 100%);
+            border-left-color: #d4a5d9;
             transform: translateX(8px);
         }
 
         #chatbox {
-            border: 2px solid #667eea;
+            border: 2px solid #d4a5d9;
             padding: 20px;
             margin-top: 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f1fa 100%);
+            background: linear-gradient(135deg, #faf5fc 0%, #f5f0fa 100%);
             border-radius: 12px;
         }
 
@@ -236,15 +236,15 @@
         }
 
         #messages div:nth-child(odd) {
-            background: #667eea;
+            background: #d4a5d9;
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 2px;
         }
 
         #messages div:nth-child(even) {
-            background: #e9ecef;
-            color: #333;
+            background: #e8d5f2;
+            color: #4a4a6a;
             align-self: flex-start;
             border-bottom-left-radius: 2px;
         }
@@ -258,22 +258,23 @@
             width: 100%;
             padding: 12px 15px;
             margin: 8px 0;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #e8d5f2;
             border-radius: 8px;
             font-family: inherit;
             font-size: 1em;
             transition: all 0.3s ease;
+            background: #fef9fc;
         }
 
         input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #d4a5d9;
+            box-shadow: 0 0 0 3px rgba(212, 165, 217, 0.2);
             transform: scale(1.02);
         }
 
         button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4a5d9 0%, #e8b4e8 100%);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -293,14 +294,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transition: left 0.3s ease;
             z-index: -1;
         }
 
         button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 25px rgba(212, 165, 217, 0.4);
         }
 
         button:hover::before {
@@ -320,11 +321,11 @@
         footer {
             text-align: center;
             padding: 30px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4a5d9 0%, #c9b5e8 100%);
             color: white;
             margin-top: 40px;
             font-weight: 500;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -5px 20px rgba(212, 165, 217, 0.25);
         }
 
         @media (max-width: 768px) {
@@ -361,12 +362,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #d4a5d9 0%, #e8b4e8 100%);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #667eea;
+            background: #d4a5d9;
         }
     </style>
 </head>
