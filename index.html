@@ -27,12 +27,14 @@
         header {
             background: linear-gradient(135deg, #d4a5d9 0%, #c9b5e8 100%);
             color: #ffffff;
-            padding: 20px 40px;
+            padding: 18px 40px;
             text-align: center;
             box-shadow: 0 8px 32px rgba(212, 165, 217, 0.25);
-            position: sticky;
+            position: fixed;
+            left: 0;
             top: 0;
-            z-index: 100;
+            width: 100%;
+            z-index: 1000;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
@@ -108,7 +110,7 @@
         }
 
         main {
-            padding: 40px 20px;
+            padding: 28px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -133,16 +135,17 @@
         }
 
         section {
-            margin-bottom: 40px;
-            padding: 35px;
+            margin: 18px auto;
+            padding: 18px 20px;
+            max-width: 880px;
             background: linear-gradient(135deg, #fef9fc 0%, #f5f0fa 100%);
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(212, 165, 217, 0.15);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(212, 165, 217, 0.12);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             animation: fadeInUp 0.6s ease-out;
-            border: 1px solid rgba(212, 165, 217, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 217, 0.12);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
         }
 
         @keyframes fadeInUp {
@@ -163,8 +166,8 @@
         }
 
         .theme, .service-card {
-            padding: 20px;
-            margin: 15px 0;
+            padding: 16px;
+            margin: 12px 0;
             border-left: 4px solid #d4a5d9;
             background: #faf5fc;
             border-radius: 8px;
@@ -208,21 +211,46 @@
             padding-left: 0;
         }
 
+        /* full-width background image (place image at assets/wedding-bg.jpg) */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: url('assets/wedding-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            filter: brightness(0.85) saturate(0.95);
+            transform: translateZ(0);
+            opacity: 1;
+        }
+
+        /* overlay to improve readability */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(232,213,242,0.38) 100%);
+            pointer-events: none;
+        }
+
         li {
-            padding: 10px 15px;
-            margin: 8px 0;
+            padding: 8px 12px;
+            margin: 6px 0;
             background: #faf5fc;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             border-left: 3px solid transparent;
             position: relative;
             padding-left: 30px;
-            animation: listItemAppear 0.5s ease-out backwards;
+            animation: listItemAppear 0.45s ease-out backwards;
         }
 
-        li:nth-child(1) { animation-delay: 0.1s; }
-        li:nth-child(2) { animation-delay: 0.2s; }
-        li:nth-child(3) { animation-delay: 0.3s; }
+        li:nth-child(1) { animation-delay: 0.06s; }
+        li:nth-child(2) { animation-delay: 0.12s; }
+        li:nth-child(3) { animation-delay: 0.18s; }
 
         @keyframes listItemAppear {
             from {
@@ -659,10 +687,14 @@
             });
         });
 
-        // Parallax scrolling effect
-        window.addEventListener('scroll', function() {
+        // Keep header fixed: set body padding dynamically to avoid overlap
+        document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('header');
-            header.style.transform = 'translateY(' + window.pageYOffset * 0.5 + 'px)';
+            function setBodyPadding() {
+                document.body.style.paddingTop = header.offsetHeight + 'px';
+            }
+            setBodyPadding();
+            window.addEventListener('resize', setBodyPadding);
         });
     </script>
 </body>
