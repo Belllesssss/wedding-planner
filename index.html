@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Wedding Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: #5e4b8a;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #5e4b8a;
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        #messages {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #5e4b8a;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #4a3b6e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #5e4b8a;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wedding Planner</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#themes">Wedding Themes</a></li>
+                <li><a href="#outfits">Outfit Options</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are dedicated to making your dream wedding a reality!</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <h3>Catering</h3>
+            <ul>
+                <li>Italian Cuisine</li>
+                <li>Mexican Cuisine</li>
+                <li>Vegetarian Options</li>
+            </ul>
+            <h3>Makeup Artists</h3>
+            <ul>
+                <li>Artist 1</li>
+                <li>Artist 2</li>
+                <li>Artist 3</li>
+            </ul>
+        </section>
+
+        <section id="themes">
+            <h2>Wedding Themes</h2>
+            <div class="theme">
+                <h3>Rustic</h3>
+                <p>Details about rustic themes...</p>
+            </div>
+            <div class="theme">
+                <h3>Vintage</h3>
+                <p>Details about vintage themes...</p>
+            </div>
+        </section>
+
+        <section id="outfits">
+            <h2>Outfit Options</h2>
+            <ul>
+                <li>Bridal Gowns</li>
+                <li>Bridesmaid Dresses</li>
+                <li>Groomsmen Attire</li>
+            </ul>
+        </section>
+
+        <section id="chatbot">
+            <h2>Ask Our Chatbot</h2>
+            <div id="chatbox">
+                <div id="messages"></div>
+                <input type="text" id="userInput" placeholder="Ask me about your wedding...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Wedding Planner. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById("userInput").value;
+            const messageContainer = document.getElementById("messages");
+
+            // Display user's message
+            messageContainer.innerHTML += `<div>User: ${userInput}</div>`;
+
+            // Simple AI response simulation
+            let botResponse = "I'm not sure, but let me suggest some themes!";
+            if (userInput.toLowerCase().includes("theme")) {
+                botResponse = "How about a rustic or vintage theme?";
+            }
+
+            // Display bot response after a short delay
+            setTimeout(() => {
+                messageContainer.innerHTML += `<div>Bot: ${botResponse}</div>`;
+                document.getElementById("userInput").value = ''; // Clear input field
+                messageContainer.scrollTop = messageContainer.scrollHeight; // Scroll to bottom
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
